@@ -7,18 +7,40 @@ This Library Management System is developed using **FastAPI** and **SQLModel**, 
 
 ## **Project Structure**
 ```
+```
 └── 📁Fast_API_Assignment
-    ├── 📁models        # Database models
-    ├── 📁routes        # API route definitions
-    ├── 📁schemas       # Pydantic schemas for request/response validation
-    ├── 📁tests         # Automated test cases using Pytest
-    ├── 📁utils         # Utility functions for authentication and security
-    ├── .env           # Environment variables
-    ├── .gitignore     # Git ignore file
-    ├── database.py    # Database connection and session management
-    ├── main.py        # Application entry point
-    ├── README.md      # Project documentation
-    ├── requirements.txt # Project dependencies
+    └── 📁models
+        └── __init__.py
+        └── book.py
+        └── borrow.py
+        └── user.py
+    └── 📁routes
+        └── __init__.py
+        └── admin.py
+        └── auth.py
+        └── user.py
+    └── 📁schemas
+        └── __init__.py
+        └── book.py
+        └── borrow.py
+        └── user.py
+    └── 📁tests
+        └── __init__.py
+        └── conftest.py
+        └── test_admin.py
+        └── test_auth.py
+        └── test_user.py
+    └── 📁utils
+        └── __init__.py
+        └── dependencies.py
+        └── security.py
+    └── .env
+    └── .gitignore
+    └── database.py
+    └── main.py
+    └── README.md
+    └── requirements.txt
+```
 ```
 
 ---

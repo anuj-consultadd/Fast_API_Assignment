@@ -7,7 +7,6 @@ This Library Management System is developed using **FastAPI** and **SQLModel**, 
 
 ## **Project Structure**
 ```
-```
 └── 📁Fast_API_Assignment
     └── 📁models
         └── __init__.py
@@ -40,7 +39,6 @@ This Library Management System is developed using **FastAPI** and **SQLModel**, 
     └── main.py
     └── README.md
     └── requirements.txt
-```
 ```
 
 ---

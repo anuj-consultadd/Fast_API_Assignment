@@ -9,7 +9,7 @@ from utils.dependencies import is_admin
 router = APIRouter(prefix="/admin", tags=["Admin"])
 
 
-@router.post("/books", response_model=BookResponse, status_code=status.HTTP_200_OK)
+@router.post("/books", response_model=BookResponse, status_code=status.HTTP_201_CREATED)
 def add_book(
     book_data: BookCreate, db: Session = Depends(get_session), admin=Depends(is_admin)
 ):

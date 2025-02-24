@@ -37,13 +37,13 @@ def create_test_book(test_client, admin_token):
             "available": True,
         },
     )
-    assert response.status_code == status.HTTP_200_OK, response.json()
+    assert response.status_code == status.HTTP_201_CREATED, response.json()
     return response.json()["id"]
 
 
 import pytest
 from fastapi import status
-
+ 
 
 @pytest.mark.user
 def test_browse_books(test_client, member_token, create_test_book):

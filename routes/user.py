@@ -12,14 +12,15 @@ router = APIRouter(prefix="/books", tags=["User"])
 
 
 # Browse books
-@router.get("/", response_model=list[BookResponse])
+@router.get("/", response_model=list[BookResponse], status_code=status.HTTP_200_OK)
 def browse_books(db: Session = Depends(get_session)):
     books = db.exec(select(Book)).all()
+    print("Browse Books Route Output:", books)
     return books
 
 
 # Borrow a book
-@router.post("/{book_id}/borrow", response_model=BorrowResponse)
+@router.post("/{book_id}/borrow", response_model=BorrowResponse, status_code=status.HTTP_200_OK)
 def borrow_book(
     book_id: int, db: Session = Depends(get_session), user=Depends(get_current_user)
 ):
@@ -48,7 +49,7 @@ def borrow_book(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e)
         )
 
-
+#return a book
 @router.post("/{book_id}/return")
 def return_book(
     book_id: int, db: Session = Depends(get_session), user=Depends(get_current_user)

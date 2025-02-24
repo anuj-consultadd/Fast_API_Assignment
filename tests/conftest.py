@@ -21,7 +21,7 @@ TestingSessionLocal = Session(engine)
 
 @pytest.fixture
 def test_db():
-    """Creates a fresh test database before tests and drops it after."""
+   
     SQLModel.metadata.create_all(engine)
     try:
         db = TestingSessionLocal
@@ -34,7 +34,7 @@ def test_db():
 
 @pytest.fixture
 def test_client(test_db):
-    """Overrides FastAPI's get_session dependency with the test database."""
+    
 
     def override_get_session():
         try:
@@ -49,7 +49,6 @@ def test_client(test_db):
 
 @pytest.fixture
 def test_admin(test_client, test_db):
-    """Fixture to create an admin user and return both user data and JWT token."""
     test_client.post(
         "/auth/signup",
         json={
@@ -82,7 +81,6 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 @pytest.fixture
 def test_member(test_db):
-    """Creates a test member user with a hashed password."""
     hashed_pw = pwd_context.hash("memberpassword")
 
     member_user = User(
@@ -99,7 +97,6 @@ def test_member(test_db):
 
 @pytest.fixture
 def admin_token(test_admin):
-    """Returns the admin's JWT token from test_admin."""
     return test_admin["token"]
 
 

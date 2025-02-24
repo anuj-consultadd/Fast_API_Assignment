@@ -30,7 +30,12 @@ def test_add_book(test_client, admin_token):
 
     response = test_client.post(
         "/admin/books",
-        json={"title": "Test Book", "author": "Author", "available": True},
+        json={
+            "title": "Test Book",
+            "author": "Author",
+            "available": True,
+            "isbn": "9876543210987",
+        },
         headers=headers,
     )
 
